@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+<title>Saule ❤️</title>
+<meta name="description" content="A little something, just for you.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================= Ambient background ================= -->
+<div id="bg-layer" aria-hidden="true">
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+  <div class="stars-canvas" id="stars-canvas"></div>
+  <div class="hearts-canvas" id="hearts-canvas"></div>
+</div>
+
+<!-- ================= Hidden secret gate ================= -->
+<div id="gate">
+  <div class="screen-inner glass" style="padding:34px 26px;">
+    <svg class="heart-seal" viewBox="0 0 64 64" aria-hidden="true">
+      <path d="M32 56S6 40 6 22a14 14 0 0 1 26-7 14 14 0 0 1 26 7c0 18-26 34-26 34z"
+            fill="none" stroke="#F6A9C6" stroke-width="2.5" stroke-linejoin="round"/>
+    </svg>
+    <p class="eyebrow">A private page</p>
+    <h2 class="headline" style="font-size:22px;" data-i18n="gateTitle">This website was made for only one person.</h2>
+    <p class="subtext" data-i18n="gateBody">If your name isn't Saule, please close this page.</p>
+    <button class="btn btn-primary" id="gate-continue" data-i18n="gateContinue">Continue</button>
+  </div>
+</div>
+
+<!-- ================= Persistent chrome ================= -->
+<button id="music-toggle" type="button" aria-label="Play music" aria-pressed="false">
+  <span class="music-icon music-icon--off" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>
+      <line x1="3" y1="3" x2="21" y2="21" stroke-width="2"/>
+    </svg>
+  </span>
+  <span class="music-icon music-icon--on" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>
+    </svg>
+  </span>
+  <span class="music-pulse" aria-hidden="true"></span>
+</button>
+<button id="lang-switch" type="button" aria-label="Change language">🌐</button>
+<div id="progress" aria-hidden="true">
+  <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+  <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+</div>
+
+<audio id="bg-music" loop preload="none" src="careless.mp3"></audio>
+
+<main id="app">
+
+  <!-- ============ Welcome / language selection ============ -->
+  <section class="screen" id="screen-welcome">
+    <div class="screen-inner glass" style="padding:40px 26px;">
+      <h1 class="headline" data-i18n="welcomeName">Kanatbayeva Saule Adayevna ❤️</h1>
+      <p class="subtext" data-i18n="welcomeSubtitle">I prepared something special just for you...</p>
+      <p class="eyebrow" data-i18n="chooseLanguage" style="margin-top:8px;">Please choose your language</p>
+      <div class="lang-grid">
+        <button class="lang-btn" data-lang="uz"><span class="flag">🇺🇿</span><span data-i18n="lang_uz">O'zbek</span></button>
+        <button class="lang-btn" data-lang="kk"><span class="flag">🇰🇿</span><span data-i18n="lang_kk">Қазақша</span></button>
+        <button class="lang-btn" data-lang="ru"><span class="flag">🇷🇺</span><span data-i18n="lang_ru">Русский</span></button>
+        <button class="lang-btn" data-lang="en"><span class="flag">🇺🇸</span><span data-i18n="lang_en">English</span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Screen 1 ============ -->
+  <section class="screen" id="screen-1">
+    <div class="screen-inner">
+      <h2 class="headline" data-i18n="s1_l1">There are many people in this world...</h2>
+      <p class="subtext" data-i18n="s1_l2">But I have never met anyone quite like you.</p>
+      <button class="btn btn-primary" data-next="2" data-i18n="next">Next →</button>
+    </div>
+  </section>
+
+  <!-- ============ Screen 2 ============ -->
+  <section class="screen" id="screen-2">
+    <div class="screen-inner glass" style="padding:32px 24px;">
+      <p class="subtext" data-i18n="s2_l1" style="font-size:18px; color:var(--plum-ink);">Every conversation with you became one of my favorite moments.</p>
+      <p class="subtext" data-i18n="s2_l2">Your smile makes me smile.</p>
+      <p class="subtext" data-i18n="s2_l3">Your happiness makes me happy.</p>
+      <p class="subtext" data-i18n="s2_l4">Your sadness makes me think.</p>
+      <p class="subtext" data-i18n="s2_l5">I treasure every moment spent with you.</p>
+      <button class="btn btn-primary" data-next="3" data-i18n="next">Next →</button>
+    </div>
+  </section>
+
+  <!-- ============ Screen 3 — Photo ============ -->
+  <section class="screen" id="screen-3">
+    <div class="screen-inner">
+      <p class="eyebrow" data-i18n="s3_pre">Our photo</p>
+      <div class="photo-frame">
+        <img src="us.png" alt="Our photo together"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="photo-placeholder" style="display:none;">
+          Replace assets/images/photo.jpg with your favorite photo together
+        </div>
+      </div>
+      <p class="subtext" data-i18n="s3_l1">Maybe we haven't known each other for years...</p>
+      <p class="subtext" data-i18n="s3_l2">But somehow you've already become an important part of my heart.</p>
+      <button class="btn btn-primary" data-next="4" data-i18n="next">Next →</button>
+    </div>
+  </section>
+
+  <!-- ============ Screen 4 — Heartbeat ============ -->
+  <section class="screen" id="screen-4">
+    <div class="screen-inner">
+      <div class="heartbeat-wrap">
+        <div class="heartbeat-glow"></div>
+        <svg class="heartbeat-svg" viewBox="0 0 64 64">
+          <path d="M32 56S6 40 6 22a14 14 0 0 1 26-7 14 14 0 0 1 26 7c0 18-26 34-26 34z" fill="#F6A9C6"/>
+        </svg>
+      </div>
+      <h2 class="headline" data-i18n="s4_l1" style="margin-top:8px;">Today...</h2>
+      <p class="subtext" data-i18n="s4_l2">I don't want to ask you an ordinary question.</p>
+      <button class="btn btn-primary" data-next="5" data-i18n="next">Next →</button>
+    </div>
+  </section>
+
+  <!-- ============ Screen 5 — The question ============ -->
+  <section class="screen screen-proposal" id="screen-5">
+    <div class="screen-inner">
+      <div class="proposal-heart-wrap" id="proposal-heart" aria-hidden="true">
+        <div class="proposal-heart-glow"></div>
+        <svg class="proposal-heart-svg" viewBox="0 0 64 64">
+          <path d="M32 56S6 40 6 22a14 14 0 0 1 26-7 14 14 0 0 1 26 7c0 18-26 34-26 34z" fill="#F6A9C6"/>
+        </svg>
+      </div>
+      <h1 class="reveal-name display" id="reveal-name" data-i18n="reveal_name">Saule ❤️</h1>
+      <p class="reveal-line1" id="reveal-line1" data-i18n="reveal_line1">I truly love you.</p>
+      <h2 class="reveal-question display" id="reveal-question" data-i18n="reveal_question">Would you officially become my girlfriend?</h2>
+
+      <div class="decision-row" id="decision-row">
+        <button class="btn-yes" id="yes-btn" type="button" data-i18n="yesBtn">💚 YES</button>
+        <button class="btn-no" id="no-btn" type="button" data-i18n="noBtn">❤️ NO</button>
+      </div>
+      <p class="no-caption" id="no-caption"></p>
+    </div>
+  </section>
+
+  <!-- ============ Celebration ============ -->
+  <section class="screen" id="celebrate">
+    <div class="screen-inner">
+      <svg class="celebrate-heart" viewBox="0 0 64 64" aria-hidden="true">
+        <path d="M32 56S6 40 6 22a14 14 0 0 1 26-7 14 14 0 0 1 26 7c0 18-26 34-26 34z" fill="#F6A9C6"/>
+      </svg>
+      <p class="celebrate-msg" id="celebrate-msg1" data-i18n="celebrate_msg1">You just made me the happiest person in the world ❤️</p>
+      <p class="celebrate-msg" id="celebrate-msg2" data-i18n="celebrate_msg2">Thank you for trusting me. I promise to do my best to make you smile every day.</p>
+      <p class="celebrate-msg" id="celebrate-msg3" data-i18n="celebrate_msg3">Let's create beautiful memories together.</p>
+      <p class="celebrate-sign" id="celebrate-sign" data-i18n="celebrate_sign">Samandar + Saule<br>Forever begins today.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer id="site-footer">
+  <span data-i18n="footer">Created with ❤️ — Samandar Askarov</span>
+</footer>
+
+<script src="translations.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
